@@ -1,50 +1,14 @@
 import streamlit as st
 import pandas as pd
+import os
 
-# Custom CSS for styling
-st.markdown("""
-    <style>
-    .sidebar .sidebar-content {
-        background-color: #1c1f3b;
-        color: white;
-    }
-    .main-header {
-        font-size: 24px;
-        font-weight: bold;
-        color: #2A9DF4;
-        padding: 10px;
-    }
-    .container-box {
-        background-color: #f7f9fc;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #dedede;
-    }
-    .test-action {
-        background-color: #2A9DF4;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-        text-align: center;
-        width: 100px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-    .table-header {
-        font-weight: bold;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    td, th {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+# Load external CSS file
+def load_css(css_file):
+    with open(css_file) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# Load the CSS file
+load_css('styles.css')
 
 # Sidebar
 st.sidebar.title("GoTestPro")
